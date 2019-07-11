@@ -26,12 +26,12 @@ const _App = withRedux(store)(
       }
     }
 
-    componentDidMount () {
-      const jssStyles = document.querySelector('#jss-server-side')
-      if (jssStyles && jssStyles.parentNode) {
-        jssStyles.parentNode.removeChild(jssStyles)
-      }
-    }
+    // componentDidMount () {
+    //   const jssStyles = document.querySelector('#jss-server-side')
+    //   if (jssStyles && jssStyles.parentNode) {
+    //     jssStyles.parentNode.removeChild(jssStyles)
+    //   }
+    // }
 
     render () {
       const {
@@ -46,7 +46,6 @@ const _App = withRedux(store)(
             <title>عنوان صفحه</title>
           </Head>
           {/* <StylesProvider jss={jss}> */}
-
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Provider store={store}>

@@ -68,7 +68,7 @@ const Index = (props) => {
 
 Index.getInitialProps = ({ store, isServer }) => {
   store.dispatch(increment(isServer))
-
+  
   return { isServer }
 }
 

@@ -1,30 +1,10 @@
-import { INCREMENT, DECREMENT } from '../constants'
+import { combineReducers } from 'redux'
+import counter from "./counter";
+import todos from './todos'
 
-const initialState = {
-  value: 0,
-  action: null,
-  from: null
-}
+const rootReducer = combineReducers({
+  counter,
+  todos
+});
 
-export const counter = (state = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return {
-        ...state,
-        value: state.value + 1,
-        action: 'افزایش',
-        from: action.from
-      }
-
-    case DECREMENT:
-      return {
-        ...state,
-        value: state.value - 1,
-        action: 'کاهش',
-        from: action.from
-      }
-
-    default:
-      return state
-  }
-}
+export default rootReducer;
