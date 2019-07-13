@@ -9,7 +9,7 @@ import RemoveIcon from '@material-ui/icons/Remove'
 import Typography from '@material-ui/core/Typography'
 import { connect } from 'react-redux'
 import { increment, decrement } from '../src/actions'
-
+import Layout from '../src/components/layout'
 const useStyles = makeStyles({
   container: {
     display: 'flex',
@@ -30,39 +30,40 @@ const Index = (props) => {
   const classes = useStyles()
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color='textSecondary'
-          gutterBottom
-        >
-          از سمت <b>{counter.from}</b>
-        </Typography>
-        <Typography variant='h3' component='h2'>
-          {counter.value}
-        </Typography>
-        <Typography color='textSecondary'>{counter.action}</Typography>
-      </CardContent>
-      <CardActions>
-        <Fab
-          variant='round'
-          color='primary'
-          size='small'
-          onClick={() => increment()}
-        >
-          <AddIcon />
-        </Fab>
-        <Fab
-          variant='round'
-          color='secondary'
-          size='small'
-          onClick={() => decrement()}
-        >
-          <RemoveIcon />
-        </Fab>
-      </CardActions>
-    </Card>
+      <Layout> </Layout>
+    // <Card className={classes.card}>
+    //   <CardContent>
+    //     <Typography
+    //       className={classes.title}
+    //       color='textSecondary'
+    //       gutterBottom
+    //     >
+    //       از سمت <b>{counter.from}</b>
+    //     </Typography>
+    //     <Typography variant='h3' component='h2'>
+    //       {counter.value}
+    //     </Typography>
+    //     <Typography color='textSecondary'>{counter.action}</Typography>
+    //   </CardContent>
+    //   <CardActions>
+    //     <Fab
+    //       variant='round'
+    //       color='primary'
+    //       size='small'
+    //       onClick={() => increment()}
+    //     >
+    //       <AddIcon />
+    //     </Fab>
+    //     <Fab
+    //       variant='round'
+    //       color='secondary'
+    //       size='small'
+    //       onClick={() => decrement()}
+    //     >
+    //       <RemoveIcon />
+    //     </Fab>
+    //   </CardActions>
+    // </Card>
   )
 }
 

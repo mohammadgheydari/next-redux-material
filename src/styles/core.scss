@@ -1,3 +1,4 @@
+@import 'common/variables.scss';
 /* --- IRAN SANS --- */
 @font-face {
 	font-family: 'iransans';
@@ -123,15 +124,75 @@
 
 *, *::before, *::after {
   box-sizing: border-box !important;
+  font-family: 'iransans';
 }
 
+a{
+	border: none;
+    text-decoration: none;
+    outline: 0;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: 'iransans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+main{
+	min-height: 70vh
 }
 .fa-num{
   font-family: 'iransansfanum';
 }
+.card{
+	background: $white;
+}
+.card.dark{
+	background: $light-grey
+}
+
+.mini-title{
+	font-size: 15px
+}
+ul.links{
+	padding-right: 0;
+	li{
+		list-style-type: none
+	}
+}
+.link{
+	color: $black-color; 
+	transition:all 320ms ease ;
+	&:hover{ 
+		color:$primary-color;
+	}
+}
+.link-hover, .active-state {
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+	border:none; 
+	background: transparent;
+
+	&:before, &:after {
+	  content: '';
+	  position: absolute;
+	  transition: transform .5s ease;
+	}
+	&:before {
+	  left: 0;
+	  bottom: 0;
+	  width: 100%;
+	  height: 2px;
+	  background: $primary-color;
+	  transform:  scaleX(0);
+	}
+	&:hover{
+		color:$primary-color !important
+	}
+	&:hover:before {
+	  transform:  scaleX(1);
+	}
+  }

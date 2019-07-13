@@ -6,11 +6,13 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { create } from 'jss';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import rtl from 'jss-rtl';
-import MuiTheme from '../styles/theme';
-import "../styles/core.scss";
+import MuiTheme from '../../styles/theme';
+import "../../styles/index.scss";
+import "../../styles/core.scss";
+import AppBar from '@material-ui/core/AppBar';
 
 // Configure JSS
-const jss = create({plugins: [...jssPreset().plugins, rtl()]});
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 export default class Layout extends React.Component {
   // handleUpdateRoute = () => window.scrollTo(0, 0);
@@ -22,14 +24,16 @@ export default class Layout extends React.Component {
       <StylesProvider jss={jss}>
         <MuiThemeProvider theme={MuiTheme}>
           <CssBaseline />
-          <div dir="rtl">
-            <Meta title={title} />
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <Meta title={title} />
+          <AppBar title = "Title" />
+
+          <Header />
+          <main>
+          {children}
+          </main>
+          <Footer />
         </MuiThemeProvider>
-       </StylesProvider>
+      </StylesProvider>
     );
   }
 }
