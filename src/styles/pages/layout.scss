@@ -1,35 +1,73 @@
 @import "../common/variables.scss";
+///////////////// header
 .header {
   background-color: $white;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
+  position: fixed;
+  width: 100%;
+  top:0;
+  z-index: 1;
   nav {
     display: flex;
-    min-height: 50px;
-    line-height: 50px;
+    min-height: 60px;
+    line-height: 60px;
     .right-section {
       display: flex;
       justify-content: flex-start;
-      width: 25%;
+      width: 75%;
     }
     .left-section {
       display: flex;
       justify-content: flex-end;
       width: 25%;
     }
-    .center-section {
-      display: flex;
-      justify-content: center;
-      width: 50%;
-    }
     .logo img {
       width: 120px;
       position: relative;
-      top: 10px;
+      top: 15px;
     }
-    .menu a {
-      color: $black-color;
-      font-weight: 500;
-      margin: 4px 10px;
+    .menu {
+      margin-right: 2rem;
+      a {
+        color: $black-color;
+        font-weight: 500;
+        margin: 4px 10px;
+        padding-bottom: 10px
+      }
+    }
+  }
+}
+
+///////////////// footer
+footer{
+  .footer-logo{
+    img{
+      width: 100px;
+      margin-top: 10px
+    }
+  }
+  .list-socials{
+    padding-right: 0;
+    display: flex;
+    li{
+      list-style-type: none;
+      a {
+        display: inline-block;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 39px;
+        background: #ddd;
+        svg{
+          width: 20px;
+          fill:#444
+        }
+      }
     }
   }
 }

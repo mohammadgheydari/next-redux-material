@@ -10,49 +10,52 @@ import rtl from 'jss-rtl';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import theme from '../src/styles/theme';
 import store from '../src/store';
+import Header from '../src/components/layout/header';
+import Footer from '../src/components/layout/footer';
 import '../src/styles/core.scss';
+import "../src/styles/index.scss";
 
 
-// Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 const _App = withRedux(store)(
   class _App extends App {
-    static async getInitialProps ({ Component, ctx }) {
+    static async getInitialProps({ Component, ctx }) {
       return {
         pageProps: Component.getInitialProps
           ? await Component.getInitialProps(ctx)
           : {}
       }
     }
-
-    // componentDidMount () {
-    //   const jssStyles = document.querySelector('#jss-server-side')
-    //   if (jssStyles && jssStyles.parentNode) {
-    //     jssStyles.parentNode.removeChild(jssStyles)
-    //   }
-    // }
-
-    render () {
+    componentDidMount() {
+      const jssStyles = document.querySelector('#jss-server-side')
+      if (jssStyles && jssStyles.parentNode) {
+        jssStyles.parentNode.removeChild(jssStyles)
+      }
+    }
+    render() {
       const {
         Component,
         pageProps,
         store
-      } = this.props
-
+      } = this.props;
       return (
-          <Container>
+        <Container>
           <Head>
             <title>عنوان صفحه</title>
           </Head>
-          {/* <StylesProvider jss={jss}> */}
+          <StylesProvider jss={jss}>
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Provider store={store}>
-              <Component {...pageProps} />
+              <Header />
+              <main>
+                <Component {...pageProps} />
+              </main>
+              <Footer />
             </Provider>
           </MuiThemeProvider>
-          {/* </StylesProvider> */}
+          </StylesProvider>
         </Container>
 
       )
@@ -61,3 +64,4 @@ const _App = withRedux(store)(
 )
 
 export default _App
+

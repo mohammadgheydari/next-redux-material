@@ -141,10 +141,14 @@ body {
   
 }
 main{
-	min-height: 70vh
+	min-height: 65vh;
+	margin-top: 66px;
 }
 .fa-num{
   font-family: 'iransansfanum';
+}
+.readable{
+	line-height: 1.4rem
 }
 .card{
 	background: $white;
@@ -154,45 +158,46 @@ main{
 }
 
 .mini-title{
-	font-size: 15px
+	font-size: 15px;
+	color:$black-color
+}
+.mute{
+	color: $dark-grey;
 }
 ul.links{
 	padding-right: 0;
 	li{
-		list-style-type: none
+		list-style-type: none;
+		margin-bottom: 10px
 	}
 }
 .link{
-	color: $black-color; 
+	color: $dark-grey; 
 	transition:all 320ms ease ;
 	&:hover{ 
 		color:$primary-color;
 	}
 }
-.link-hover, .active-state {
+
+.link-hover {
 	position: relative;
 	color: inherit;
 	text-decoration: none;
 	border:none; 
-	background: transparent;
-
-	&:before, &:after {
+	&:after {
 	  content: '';
 	  position: absolute;
-	  transition: transform .5s ease;
-	}
-	&:before {
-	  left: 0;
+	  transition: all .5s ease;
+	  right: 0;
 	  bottom: 0;
-	  width: 100%;
 	  height: 2px;
-	  background: $primary-color;
-	  transform:  scaleX(0);
+	  width: 0;
+	  background: $primary-color 
 	}
-	&:hover{
+	&:hover,&.active{
 		color:$primary-color !important
 	}
-	&:hover:before {
-	  transform:  scaleX(1);
+	&:hover:after, &.active:after {
+		width: 100%;
 	}
   }

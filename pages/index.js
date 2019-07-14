@@ -1,90 +1,20 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import Fab from '@material-ui/core/Fab'
-import AddIcon from '@material-ui/icons/Add'
-import RemoveIcon from '@material-ui/icons/Remove'
-import Typography from '@material-ui/core/Typography'
-import { connect } from 'react-redux'
-import { increment, decrement } from '../src/actions'
-import Layout from '../src/components/layout'
-const useStyles = makeStyles({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  title: {
-    fontSize: 14
-  }
-})
+import TextField from '@material-ui/core/TextField';
+
 
 const Index = (props) => {
-  const {
-    counter,
-    increment,
-    decrement
-  } = props
-
-  const classes = useStyles()
-
   return (
-      <Layout> </Layout>
-    // <Card className={classes.card}>
-    //   <CardContent>
-    //     <Typography
-    //       className={classes.title}
-    //       color='textSecondary'
-    //       gutterBottom
-    //     >
-    //       از سمت <b>{counter.from}</b>
-    //     </Typography>
-    //     <Typography variant='h3' component='h2'>
-    //       {counter.value}
-    //     </Typography>
-    //     <Typography color='textSecondary'>{counter.action}</Typography>
-    //   </CardContent>
-    //   <CardActions>
-    //     <Fab
-    //       variant='round'
-    //       color='primary'
-    //       size='small'
-    //       onClick={() => increment()}
-    //     >
-    //       <AddIcon />
-    //     </Fab>
-    //     <Fab
-    //       variant='round'
-    //       color='secondary'
-    //       size='small'
-    //       onClick={() => decrement()}
-    //     >
-    //       <RemoveIcon />
-    //     </Fab>
-    //   </CardActions>
-    // </Card>
+    <div>
+       <TextField
+        id="standard-name"
+        label="Name"
+        margin="normal"
+      />
+      test
+      {/* <Fab variant="extended" color="primary" className="px-4 py-0" size="small">
+        ثبت نام
+      </Fab> */}
+    </div>
   )
 }
-
-Index.getInitialProps = ({ store, isServer }) => {
-  store.dispatch(increment(isServer))
-  
-  return { isServer }
-}
-
-const mapStateToProps = state => {
-  return {
-    counter: state
-  }
-}
-
-const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch(increment()),
-  decrement: () => dispatch(decrement())
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Index)
+export default Index;
