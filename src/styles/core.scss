@@ -153,10 +153,31 @@ main{
 .card{
 	background: $white;
 }
+.hoverable{
+	transition: box-shadow 320ms ease-in;
+}
 .card.dark{
 	background: $light-grey
 }
+.card-1{
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12)
+}
+.card-1-p{
+	box-shadow: 0 3px 6px 0 rgba(98, 0, 238, 0.12)
+}
+.card-2,.card.hoverable:hover{
+	box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.20)
+}
+.card-2-p{
+	box-shadow: 0 3px 15px 0 rgba(98, 0, 238, 0.20)
+}
 
+.mini-radius{
+	border-radius: 6px; 
+}
+.title{	
+	font-size: 17px;
+}
 .mini-title{
 	font-size: 15px;
 	color:$black-color

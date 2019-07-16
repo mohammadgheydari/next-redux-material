@@ -12,7 +12,7 @@ export default class Header extends React.Component {
     }
     componentDidMount(){
         window.addEventListener('scroll', () => {
-           let activeClass = 'scroll';
+           let activeClass = 'shrink';
            if(window.scrollY === 0){
                activeClass = '';
            }
@@ -49,7 +49,7 @@ export default class Header extends React.Component {
               {/* <Button variant="outlined" color="primary" className="px-4 py-0 mt-2 ml-2" size="small" >
                   ورود
                </Button> */}
-              <Fab variant="extended" color="primary" className="my-3" size="small" style={{ padding: '0 1.6rem' }}>
+              <Fab variant="extended" color="primary" className="my-3 " size="small" style={{ padding: '0 1.6rem' }}>
                   ثبت نام
                </Fab>
           </div>
